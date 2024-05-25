@@ -241,9 +241,10 @@ class YouTube:
         if self._vid_info:
             return self._vid_info
 
-        innertube = InnerTube(use_oauth=self.use_oauth, allow_cache=self.allow_oauth_cache)
+        innertube = InnerTube(use_oauth=self.use_oauth, allow_cache=self.allow_oauth_cache, client='WEB')
 
         innertube_response = innertube.player(self.video_id)
+
         self._vid_info = innertube_response
         return self._vid_info
 
@@ -474,6 +475,6 @@ class YouTube:
             The video id of the YouTube video.
 
         :rtype: :class:`YouTube <YouTube>`
-        
+
         """
         return YouTube(f"https://www.youtube.com/watch?v={video_id}")
