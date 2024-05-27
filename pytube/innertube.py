@@ -505,25 +505,3 @@ class InnerTube:
         query.update(self.base_params)
         result = self._call_api(endpoint, query, self.base_data)
         return result
-
-
-if __name__ == '__main__':
-    import pprint
-
-    # Create an instance of the InnerTube class
-    innertube = InnerTube(client='WEB')
-    pp = pprint.PrettyPrinter(indent=4)
-
-    # Define the endpoint, query parameters, and data
-    endpoint = 'https://www.youtube.com/youtubei/v1/player'
-    query = {
-        'videoId': 'nb_TnOMZ-kU',  # Replace with your video's ID
-    }
-    query.update(innertube.base_params)
-    data = innertube.base_data
-
-    # Use the _call_api method to make the request
-    response = innertube._call_api(endpoint, query, data)
-
-    # Print the response
-    pp.pprint(response)

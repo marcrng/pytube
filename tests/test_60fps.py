@@ -4,10 +4,6 @@ from pytube.innertube import InnerTube
 import pprint
 
 
-def is_otf_stream(stream):
-    return stream.is_otf
-
-
 class TestCustomStreamQuery(unittest.TestCase):
     def setUp(self):
         self.yt = YouTube('https://www.youtube.com/watch?v=nb_TnOMZ-kU')
@@ -65,10 +61,6 @@ class TestCustomStreamQuery(unittest.TestCase):
     def test_it_player_response(self):
         response = self.it.player(self.id)
         self.pp.pprint(response)
-
-    def test_download(self):
-        stream = self.yt.streams.get_by_itag(308)
-        stream.download()
 
 
 if __name__ == '__main__':
